@@ -1,5 +1,2570 @@
+<!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
-<body>Hello, world!!!</body>
 
-</html>
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Variable Bitrate Residual Vector Quantization for Audio Coding</title>
+  <link rel="icon" type="image/x-icon" href="static/images/icons8-codec-32.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+<!--    myhead-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Codec Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+<!--        .container {-->
+<!--            max-width: 800px;-->
+<!--            margin: 20px;-->
+<!--        }-->
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        .audio-box {
+            padding: 10px;
+        }
+        .play-button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .spectrogram img {
+            width: 200px;
+            height: auto;
+        }
+        .image-box img {
+            width: 50px;
+            height: 150px;
+        }
+
+    audio {
+  width: 110px;
+  animation: audioWidth 0.1s forwards;
+}
+
+auto::-webkit-media-controls-panel {
+  justify-content: center;
+}
+
+audio::-webkit-media-controls-volume-slider {
+  display: none !important;
+  min-width: 0;
+}
+
+audio::-webkit-media-controls-timeline-container {
+  display: none !important;
+  min-width: 0;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+  min-width: 0;
+}
+
+audio::-webkit-media-controls-timeline {
+  display: none !important;
+  min-width: 0;
+}
+
+@keyframes audioWidth {
+  from {
+    width: 110px;
+  }
+  to {
+    width: 84px;
+  }
+}
+    </style>
+
+
+
+<!--    ### latex 수식-->
+     <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+</head>
+<body>
+
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Variable Bitrate Residual Vector Quantization for Audio Coding</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Yunkee Chae</a><sup>1,3</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Woosung Choi</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yuhta Takida</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Junghyun Koo</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yukara Ikemiya</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Zhi Zhong</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Kin Wai Cheuk</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Marco A. Martinez-Ramirez</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Kyogu Lee</a><sup>3,4,5</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Wei-Hsiang Liao</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yuki Mitsufuji</a><sup>1,2</sup>,</span>
+
+              </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Sony AI <sup>2</sup>Sony Group Corporation, Tokyo, Japan<br>
+                      <sup>3</sup>IPAI, <sup>4</sup>AIIS, <sup>5</sup>Department of Intelligence and Information, Seoul National University
+                      <br>Conference: under review</span>
+<!--                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>-->
+                  </div>
+
+            ## TBD: arxiv link, supplementary, code
+<!--                  <div class="column has-text-centered">-->
+<!--                    <div class="publication-links">-->
+<!--                         &lt;!&ndash; Arxiv PDF link &ndash;&gt;-->
+<!--                      <span class="link-block">-->
+<!--                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"-->
+<!--                        class="external-link button is-normal is-rounded is-dark">-->
+<!--                        <span class="icon">-->
+<!--                          <i class="fas fa-file-pdf"></i>-->
+<!--                        </span>-->
+<!--                        <span>Paper</span>-->
+<!--                      </a>-->
+<!--                    </span>-->
+
+<!--                    &lt;!&ndash; Supplementary PDF link &ndash;&gt;-->
+<!--                    <span class="link-block">-->
+<!--                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"-->
+<!--                      class="external-link button is-normal is-rounded is-dark">-->
+<!--                      <span class="icon">-->
+<!--                        <i class="fas fa-file-pdf"></i>-->
+<!--                      </span>-->
+<!--                      <span>Supplementary</span>-->
+<!--                    </a>-->
+<!--                  </span>-->
+
+<!--                  &lt;!&ndash; Github link &ndash;&gt;-->
+<!--                  <span class="link-block">-->
+<!--                    <a href="https://github.com/YOUR REPO HERE" target="_blank"-->
+<!--                    class="external-link button is-normal is-rounded is-dark">-->
+<!--                    <span class="icon">-->
+<!--                      <i class="fab fa-github"></i>-->
+<!--                    </span>-->
+<!--                    <span>Code</span>-->
+<!--                  </a>-->
+<!--                </span>-->
+
+<!--                &lt;!&ndash; ArXiv abstract Link &ndash;&gt;-->
+<!--                <span class="link-block">-->
+<!--                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"-->
+<!--                  class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                    <i class="ai ai-arxiv"></i>-->
+<!--                  </span>-->
+<!--                  <span>arXiv</span>-->
+<!--                </a>-->
+<!--              </span>-->
+<!--            </div>-->
+<!--          </div>-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<!--<section class="hero teaser">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="hero-body">-->
+<!--      <video poster="" id="tree" autoplay controls muted loop height="100%">-->
+<!--        &lt;!&ndash; Your video here &ndash;&gt;-->
+<!--        <source src="static/videos/banner_video.mp4"-->
+<!--        type="video/mp4">-->
+<!--      </video>-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. -->
+<!--      </h2>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent state-of-the-art neural audio compression models have progressively adopted residual vector quantization (RVQ). Despite this success, these models employ a fixed number of codebooks per frame, which can be suboptimal in terms of rate-distortion tradeoff, particularly in scenarios with simple input audio, such as silence. To address this limitation, we propose variable bitrate RVQ (VRVQ) for audio codecs, which allows for more efficient coding by adapting the number of codebooks used per frame. Furthermore, we propose a gradient estimation method for the non-differentiable masking operation that transforms from the importance map to the binary importance mask, improving model training via a straight-through estimator. We demonstrate that the proposed training framework achieves superior results compared to the baseline method and shows further improvement when applied to the current state-of-the-art codec.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!--###############-->
+
+<br><br>
+
+   <div class="container">
+       <h1 style="font-size: 30px;">Sample #1</h1>
+<!--       <h1>Sample #1</h1>-->
+        <table>
+<!--            GT Section-->
+            <tr>
+                <th>GT</th>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/dac/music/idx_0/audio_gt.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="spectrogram">
+                    <img src="data/dac/music/idx_0/spec_gt.png" alt="Spectrogram Image">
+                </td>
+            <!-- CBR Section -->
+            <tr>
+                <th rowspan="6">CBR</th>
+                <th>Models</th>
+                <th>DAC</th>
+                <th colspan="2">$\alpha=0.5$</th>
+                <th colspan="2">$\alpha=4$</th>
+                <th colspan="2">$\alpha=\infty$</th>
+            </tr>
+            <tr>
+                <th>0.861kbps (1)</th>
+                <td class="audio-box">
+                    <p>-2.34</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/dac/music/idx_0/audio_recons_fixed_0_sisdr_-2.34.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>-1.18</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_fixed_0_sisdr_-1.18.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>-0.13</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_fixed_0_sisdr_-0.13.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>-0.77</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_fixed_0_sisdr_-0.77.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <th>2.583kbps (3)</th>
+                <td class="audio-box">
+                    <p>8.18</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/dac/music/idx_0/audio_recons_fixed_2_sisdr_8.18.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>8.68</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_fixed_2_sisdr_8.68.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>7.27</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_fixed_2_sisdr_7.27.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>7.61</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_fixed_2_sisdr_7.61.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>4.306kbps (5)</th>
+                <td class="audio-box">
+                    <p>12.08</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/dac/music/idx_0/audio_recons_fixed_4_sisdr_12.08.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>11.93</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_fixed_4_sisdr_11.93.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>9.72</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_fixed_4_sisdr_9.72.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>9.93</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_fixed_4_sisdr_9.93.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <th>6.029kbps (7)</th>
+                <td class="audio-box">
+                    <p>13.83</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/dac/music/idx_0/audio_recons_fixed_6_sisdr_13.83.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>14.80</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_fixed_6_sisdr_14.80.wav"type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>10.17</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_fixed_6_sisdr_10.17.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>8.38</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_fixed_6_sisdr_8.38.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <th>6.890kbps(8)</th>
+                <td class="audio-box">
+                    <p>14.57</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/dac/music/idx_0/audio_recons_fixed_7_sisdr_14.57.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>14.69</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_fixed_7_sisdr_14.69.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>11.21</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_fixed_7_sisdr_11.21.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td colspan="2" class="audio-box">
+                    <p>6.43</p>
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_fixed_7_sisdr_6.43.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+            <!-- VBR Section -->
+            <tr>
+                <th rowspan="7">VBR</th>
+                <th>$$l$$</th>
+                <th>DAC(x)</th>
+                <th colspan="2">$\alpha=0.5$</th>
+                <th colspan="2">$\alpha=4$</th>
+                <th colspan="2">$\alpha=\infty$</th>
+            </tr>
+            <tr>
+                <th>$l=2$</th>
+                <td rowspan="6" class="audio-box">
+                    <p>-</p>
+                </td>
+
+                <td rowspan="6" class="impmap">
+                    <img src="data/main_p2/music/idx_0/impmap_levels_trunc.png" alt="Importance Map">
+                </td>
+
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_vbr_level_2.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+                <td rowspan="7" class="impmap">
+                    <img src="data/main_p5/music/idx_0/impmap_levels_trunc.png" alt="Importance Map">
+                </td>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_vbr_level_2.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+                <td rowspan="7" class="impmap">
+                    <img src="data/main_p0/music/idx_0/impmap_levels_trunc.png" alt="Importance Map">
+                </td>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_vbr_level_2.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+
+            </tr>
+
+            <tr>
+                <th>$l=4$</th>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_vbr_level_4.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_vbr_level_4.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_vbr_level_4.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <th>$l=8$</th>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_vbr_level_8.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_vbr_level_8.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_vbr_level_8.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <th>$l=16$</th>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_vbr_level_16.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_vbr_level_16.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_vbr_level_16.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <th>$l=24$</th>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_vbr_level_24.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_vbr_level_24.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_vbr_level_24.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+
+            <tr>
+                <th>$l=32$</th>
+
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p2/music/idx_0/audio_recons_vbr_level_32.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p5/music/idx_0/audio_recons_vbr_level_32.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td class="audio-box">
+                    <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                        <source src="data/main_p0/music/idx_0/audio_recons_vbr_level_32.wav" type="audio/wav">
+                    Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+<br><br>
+<!--  ##idx_1##-->
+<div class="container">
+   <h1 style="font-size: 30px;">Sample #2</h1>
+    <table>
+        <tr>
+            <th>GT</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_1/audio_gt.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="spectrogram">
+                <img src="data/dac/music/idx_1/spec_gt.png" alt="Spectrogram Image">
+            </td>
+        <!-- CBR Section -->
+        <tr>
+            <th rowspan="6">CBR</th>
+            <th>Models</th>
+            <th>DAC</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>0.861kbps (1)</th>
+            <td class="audio-box">
+                <p>0.07</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_1/audio_recons_fixed_0_sisdr_0.07.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-0.69</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_fixed_0_sisdr_-0.69.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-0.59</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_fixed_0_sisdr_-0.59.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>0.19</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_fixed_0_sisdr_0.19.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>2.583kbps (3)</th>
+            <td class="audio-box">
+                <p>4.39</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_1/audio_recons_fixed_2_sisdr_4.39.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.22</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_fixed_2_sisdr_4.22.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.52</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_fixed_2_sisdr_3.52.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.11</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_fixed_2_sisdr_3.11.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+        </tr>
+
+        <tr>
+            <th>4.306kbps (5)</th>
+            <td class="audio-box">
+                <p>6.40</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_1/audio_recons_fixed_4_sisdr_6.40.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>6.32</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_fixed_4_sisdr_6.32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.34</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_fixed_4_sisdr_5.34.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.55</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_fixed_4_sisdr_3.55.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.029kbps (7)</th>
+            <td class="audio-box">
+                <p>8.15</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_1/audio_recons_fixed_6_sisdr_8.15.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>8.24</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_fixed_6_sisdr_8.24.wav"type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>6.17</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_fixed_6_sisdr_6.17.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.08</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_fixed_6_sisdr_3.08.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.890kbps(8)</th>
+            <td class="audio-box">
+                <p>8.97</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_1/audio_recons_fixed_7_sisdr_8.97.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>9.19</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_fixed_7_sisdr_9.19.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>6.37</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_fixed_7_sisdr_6.37.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>2.57</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_fixed_7_sisdr_2.57.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <!-- VBR Section -->
+        <tr>
+            <th rowspan="7">VBR</th>
+            <th>$$l$$</th>
+            <th>DAC(x)</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>$l=2$</th>
+            <td rowspan="6" class="audio-box">
+                <p>-</p>
+            </td>
+
+            <td rowspan="6" class="impmap">
+                <img src="data/main_p2/music/idx_1/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p5/music/idx_1/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p0/music/idx_1/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <th>$l=4$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=8$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=16$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=24$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=32$</th>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_1/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_1/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_1/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+<br><br>
+<!--  ##idx_3##-->
+<div class="container">
+   <h1 style="font-size: 30px;">Sample #3</h1>
+    <table>
+        <tr>
+            <th>GT</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_2/audio_gt.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="spectrogram">
+                <img src="data/dac/music/idx_2/spec_gt.png" alt="Spectrogram Image">
+            </td>
+        <!-- CBR Section -->
+        <tr>
+            <th rowspan="6">CBR</th>
+            <th>Models</th>
+            <th>DAC</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>0.861kbps (1)</th>
+            <td class="audio-box">
+                <p>0.20</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_2/audio_recons_fixed_0_sisdr_0.20.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-0.47</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_fixed_0_sisdr_-0.47.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>0.98</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_fixed_0_sisdr_0.98.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>1.09</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_fixed_0_sisdr_1.09.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>2.583kbps (3)</th>
+            <td class="audio-box">
+                <p>5.19</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_2/audio_recons_fixed_2_sisdr_5.19.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.14</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_fixed_2_sisdr_5.14.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.01</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_fixed_2_sisdr_5.01.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.65</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_fixed_2_sisdr_4.65.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+        </tr>
+
+        <tr>
+            <th>4.306kbps (5)</th>
+            <td class="audio-box">
+                <p>7.60</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_2/audio_recons_fixed_4_sisdr_7.60.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>7.42</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_fixed_4_sisdr_7.42.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>7.00</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_fixed_4_sisdr_7.00.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.76</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_fixed_4_sisdr_5.76.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.029kbps (7)</th>
+            <td class="audio-box">
+                <p>9.33</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_2/audio_recons_fixed_6_sisdr_9.33.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>9.26</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_fixed_6_sisdr_9.26.wav"type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>7.98</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_fixed_6_sisdr_7.98.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.61</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_fixed_6_sisdr_5.61.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.890kbps(8)</th>
+            <td class="audio-box">
+                <p>10.07</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/music/idx_2/audio_recons_fixed_7_sisdr_10.07.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>10.10</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_fixed_7_sisdr_10.10.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>8.33</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_fixed_7_sisdr_8.33.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.80</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_fixed_7_sisdr_4.80.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <!-- VBR Section -->
+        <tr>
+            <th rowspan="7">VBR</th>
+            <th>$$l$$</th>
+            <th>DAC(x)</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>$l=2$</th>
+            <td rowspan="6" class="audio-box">
+                <p>-</p>
+            </td>
+
+            <td rowspan="6" class="impmap">
+                <img src="data/main_p2/music/idx_2/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p5/music/idx_2/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p0/music/idx_2/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <th>$l=4$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=8$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=16$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=24$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=32$</th>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/music/idx_2/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/music/idx_2/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/music/idx_2/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<!--  ############Sample4: Speech, idx 0 ############-->
+
+<br><br>
+<!--  ##idx_0##-->
+<div class="container">
+   <h1 style="font-size: 30px;">Sample #4</h1>
+    <table>
+        <tr>
+            <th>GT</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_0/audio_gt.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="spectrogram">
+                <img src="data/dac/speech/idx_0/spec_gt.png" alt="Spectrogram Image">
+            </td>
+        <!-- CBR Section -->
+        <tr>
+            <th rowspan="6">CBR</th>
+            <th>Models</th>
+            <th>DAC</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>0.861kbps (1)</th>
+            <td class="audio-box">
+                <p>-2.32</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_0/audio_recons_fixed_0_sisdr_-2.32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-3.16</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_fixed_0_sisdr_-3.16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-1.27</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_fixed_0_sisdr_-1.27.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-0.76</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_fixed_0_sisdr_-0.76.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>2.583kbps (3)</th>
+            <td class="audio-box">
+                <p>3.71</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_0/audio_recons_fixed_2_sisdr_3.71.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.42</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_fixed_2_sisdr_3.42.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.42</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_fixed_2_sisdr_3.42.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>2.51</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_fixed_2_sisdr_2.51.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+        </tr>
+
+        <tr>
+            <th>4.306kbps (5)</th>
+            <td class="audio-box">
+                <p>6.69</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_0/audio_recons_fixed_4_sisdr_6.69.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>6.28</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_fixed_4_sisdr_6.28.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.81</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_fixed_4_sisdr_5.81.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.41</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_fixed_4_sisdr_3.41.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.029kbps (7)</th>
+            <td class="audio-box">
+                <p>9.11</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_0/audio_recons_fixed_6_sisdr_9.11.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>8.92</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_fixed_6_sisdr_8.92.wav"type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>7.25</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_fixed_6_sisdr_7.25.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.12</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_fixed_6_sisdr_3.12.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.890kbps(8)</th>
+            <td class="audio-box">
+                <p>10.44</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_0/audio_recons_fixed_7_sisdr_10.44.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>10.46</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_fixed_7_sisdr_10.46.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>7.76</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_fixed_7_sisdr_7.76.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>2.66</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_fixed_7_sisdr_2.66.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <!-- VBR Section -->
+        <tr>
+            <th rowspan="7">VBR</th>
+            <th>$$l$$</th>
+            <th>DAC(x)</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>$l=2$</th>
+            <td rowspan="6" class="audio-box">
+                <p>-</p>
+            </td>
+
+            <td rowspan="6" class="impmap">
+                <img src="data/main_p2/speech/idx_0/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p5/speech/idx_0/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p0/speech/idx_0/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <th>$l=4$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=8$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=16$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=24$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=32$</th>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_0/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_0/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_0/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+  <!--  ############Sample5: Speech, idx 3 ############-->
+
+<br><br>
+<!--  ##idx_3##-->
+<div class="container">
+   <h1 style="font-size: 30px;">Sample #5</h1>
+    <table>
+        <tr>
+            <th>GT</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_3/audio_gt.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="spectrogram">
+                <img src="data/dac/speech/idx_3/spec_gt.png" alt="Spectrogram Image">
+            </td>
+        <!-- CBR Section -->
+        <tr>
+            <th rowspan="6">CBR</th>
+            <th>Models</th>
+            <th>DAC</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>0.861kbps (1)</th>
+            <td class="audio-box">
+                <p>0.20</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_3/audio_recons_fixed_0_sisdr_0.20.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-1.82</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_fixed_0_sisdr_-1.82.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-0.75</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_fixed_0_sisdr_-0.75.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>0.43</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_fixed_0_sisdr_0.43.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>2.583kbps (3)</th>
+            <td class="audio-box">
+                <p>6.05</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_3/audio_recons_fixed_2_sisdr_6.05.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.22</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_fixed_2_sisdr_4.22.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.33</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_fixed_2_sisdr_5.33.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.79</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_fixed_2_sisdr_4.79.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+        </tr>
+
+        <tr>
+            <th>4.306kbps (5)</th>
+            <td class="audio-box">
+                <p>8.78</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_3/audio_recons_fixed_4_sisdr_8.78.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>8.67</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_fixed_4_sisdr_8.67.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>8.01</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_fixed_4_sisdr_8.01.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.39</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_fixed_4_sisdr_5.39.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.029kbps (7)</th>
+            <td class="audio-box">
+                <p>11.21</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_3/audio_recons_fixed_6_sisdr_11.21.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>11.25</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_fixed_6_sisdr_11.25.wav"type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>9.09</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_fixed_6_sisdr_9.09.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>5.14</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_fixed_6_sisdr_5.14.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.890kbps(8)</th>
+            <td class="audio-box">
+                <p>12.33</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_3/audio_recons_fixed_7_sisdr_12.33.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>12.48</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_fixed_7_sisdr_12.48.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>9.51</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_fixed_7_sisdr_9.51.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.26</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_fixed_7_sisdr_4.26.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <!-- VBR Section -->
+        <tr>
+            <th rowspan="7">VBR</th>
+            <th>$$l$$</th>
+            <th>DAC(x)</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>$l=2$</th>
+            <td rowspan="6" class="audio-box">
+                <p>-</p>
+            </td>
+
+            <td rowspan="6" class="impmap">
+                <img src="data/main_p2/speech/idx_3/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p5/speech/idx_3/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p0/speech/idx_3/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <th>$l=4$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=8$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=16$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=24$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=32$</th>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_3/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_3/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_3/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<!--##### Sample 6 : idx 16, speech  -->
+<br><br>
+<!--  ##idx_16##-->
+<div class="container">
+   <h1 style="font-size: 30px;">Sample #6</h1>
+    <table>
+        <tr>
+            <th>GT</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_16/audio_gt.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="spectrogram">
+                <img src="data/dac/speech/idx_16/spec_gt.png" alt="Spectrogram Image">
+            </td>
+        <!-- CBR Section -->
+        <tr>
+            <th rowspan="6">CBR</th>
+            <th>Models</th>
+            <th>DAC</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>0.861kbps (1)</th>
+            <td class="audio-box">
+                <p>-0.74</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_16/audio_recons_fixed_0_sisdr_-0.74.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-2.15</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_fixed_0_sisdr_-2.15.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-0.88</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_fixed_0_sisdr_-0.88.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>-0.51</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_fixed_0_sisdr_-0.51.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>2.583kbps (3)</th>
+            <td class="audio-box">
+                <p>4.78</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_16/audio_recons_fixed_2_sisdr_4.78.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.42</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_fixed_2_sisdr_4.42.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>4.47</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_fixed_2_sisdr_4.47.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.18</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_fixed_2_sisdr_3.18.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+        </tr>
+
+        <tr>
+            <th>4.306kbps (5)</th>
+            <td class="audio-box">
+                <p>7.73</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_16/audio_recons_fixed_4_sisdr_7.73.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>7.69</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_fixed_4_sisdr_7.69.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>6.72</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_fixed_4_sisdr_6.72.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>3.42</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_fixed_4_sisdr_3.42.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.029kbps (7)</th>
+            <td class="audio-box">
+                <p>9.99</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_16/audio_recons_fixed_6_sisdr_9.99.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>9.99</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_fixed_6_sisdr_9.99.wav"type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>7.83</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_fixed_6_sisdr_7.83.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>2.96</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_fixed_6_sisdr_2.96.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>6.890kbps(8)</th>
+            <td class="audio-box">
+                <p>11.15</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/dac/speech/idx_16/audio_recons_fixed_7_sisdr_11.15.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>11.19</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_fixed_7_sisdr_11.19.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>8.27</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_fixed_7_sisdr_8.27.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td colspan="2" class="audio-box">
+                <p>1.99</p>
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_fixed_7_sisdr_1.99.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+        <!-- VBR Section -->
+        <tr>
+            <th rowspan="7">VBR</th>
+            <th>$$l$$</th>
+            <th>DAC(x)</th>
+            <th colspan="2">$\alpha=0.5$</th>
+            <th colspan="2">$\alpha=4$</th>
+            <th colspan="2">$\alpha=\infty$</th>
+        </tr>
+        <tr>
+            <th>$l=2$</th>
+            <td rowspan="6" class="audio-box">
+                <p>-</p>
+            </td>
+
+            <td rowspan="6" class="impmap">
+                <img src="data/main_p2/speech/idx_16/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p5/speech/idx_16/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td rowspan="7" class="impmap">
+                <img src="data/main_p0/speech/idx_16/impmap_levels_trunc.png" alt="Importance Map">
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_vbr_level_2.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <th>$l=4$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_vbr_level_4.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=8$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_vbr_level_8.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=16$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_vbr_level_16.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=24$</th>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_vbr_level_24.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <th>$l=32$</th>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p2/speech/idx_16/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p5/speech/idx_16/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td class="audio-box">
+                <audio oncontextmenu="return false;" controls controlslist="nodownload" name="media">
+                    <source src="data/main_p0/speech/idx_16/audio_recons_vbr_level_32.wav" type="audio/wav">
+                Your browser does not support the audio element.
+                </audio>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<!--############## Templatees ###################-->
+<!--############## Templatees ###################-->
+<!--############## Templatees ###################-->
+<!--############## Templatees ###################-->
+
+<!-- Image carousel -->
+<!--<section class="hero is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <div id="results-carousel" class="carousel results-carousel">-->
+<!--       <div class="item">-->
+<!--        &lt;!&ndash; Your image here &ndash;&gt;-->
+<!--        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>-->
+<!--        <h2 class="subtitle has-text-centered">-->
+<!--          Overall proposed framework of variable bitrate RVQ.-->
+<!--        </h2>-->
+<!--      </div>-->
+<!--      <div class="item">-->
+<!--        &lt;!&ndash; Your image here &ndash;&gt;-->
+<!--        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>-->
+<!--        <h2 class="subtitle has-text-centered">-->
+<!--          Second image description.-->
+<!--        </h2>-->
+<!--      </div>-->
+<!--      <div class="item">-->
+<!--        &lt;!&ndash; Your image here &ndash;&gt;-->
+<!--        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>-->
+<!--        <h2 class="subtitle has-text-centered">-->
+<!--         Third image description.-->
+<!--       </h2>-->
+<!--     </div>-->
+<!--     <div class="item">-->
+<!--      &lt;!&ndash; Your image here &ndash;&gt;-->
+<!--      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        Fourth image description.-->
+<!--      </h2>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</section>-->
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+<!--<section class="hero is-small is-light">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      &lt;!&ndash; Paper video. &ndash;&gt;-->
+<!--      <h2 class="title is-3">Video Presentation</h2>-->
+<!--      <div class="columns is-centered has-text-centered">-->
+<!--        <div class="column is-four-fifths">-->
+<!--          -->
+<!--          <div class="publication-video">-->
+<!--            &lt;!&ndash; Youtube embed code here &ndash;&gt;-->
+<!--            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!-- End youtube video -->
+
+
+<!-- Video carousel -->
+<!--<section class="hero is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <h2 class="title is-3">Another Carousel</h2>-->
+<!--      <div id="results-carousel" class="carousel results-carousel">-->
+<!--        <div class="item item-video1">-->
+<!--          <video poster="" id="video1" autoplay controls muted loop height="100%">-->
+<!--            &lt;!&ndash; Your video file here &ndash;&gt;-->
+<!--            <source src="static/videos/carousel1.mp4"-->
+<!--            type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-video2">-->
+<!--          <video poster="" id="video2" autoplay controls muted loop height="100%">-->
+<!--            &lt;!&ndash; Your video file here &ndash;&gt;-->
+<!--            <source src="static/videos/carousel2.mp4"-->
+<!--            type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item item-video3">-->
+<!--          <video poster="" id="video3" autoplay controls muted loop height="100%">\-->
+<!--            &lt;!&ndash; Your video file here &ndash;&gt;-->
+<!--            <source src="static/videos/carousel3.mp4"-->
+<!--            type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!-- End video carousel -->
+
+
+
+
+
+
+<!-- Paper poster -->
+<!--<section class="hero is-small is-light">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <h2 class="title">Poster</h2>-->
+
+<!--      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">-->
+<!--          </iframe>-->
+<!--        -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+<!--  <section class="section" id="BibTeX">-->
+<!--    <div class="container is-max-desktop content">-->
+<!--      <h2 class="title">BibTeX</h2>-->
+<!--      <pre><code>BibTex Code Here</code></pre>-->
+<!--    </div>-->
+<!--</section>-->
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
