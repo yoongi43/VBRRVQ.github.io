@@ -60,7 +60,11 @@
     padding: 0;
     background-color: #f9f9fb;
   }
-
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
   /* Sample 타이틀 간지 스타일 */
   .sample-title {
     font-size: 36px;
@@ -121,26 +125,30 @@
   }
 
   /* 오디오 플레이어 */
-    audio {
-    max-width: 180px;
-    width: 100%;
-    display: block;
-    margin: 0 auto;
-    }
-    
 
-    .impmap img, .spectrogram img {
+    .audio-box {
+        padding: 10px;
+        width: 100px;
+    }
+
+
+    .impmap img {
     max-width: 120px;
     height: auto;
     display: block;
     margin: 0 auto;
     border-radius: 6px;
     }
-    .container {
-        max-width: 1400px;
+
+    .spectrogram img {
+        max-width: 150px;
+        height: auto;
+        display: block;
         margin: 0 auto;
-        padding: 0 24px;
-      }
+        border-radius: 6px;
+        }
+
+
 
 </style>
 
@@ -197,61 +205,50 @@
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>Sony AI <sup>2</sup>Sony Group Corporation, Tokyo, Japan<br>
                       <sup>3</sup>IPAI, <sup>4</sup>AIIS, <sup>5</sup>Department of Intelligence and Information, Seoul National University
-                      <br>Conference: under review</span>
-<!--                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>-->
+                        </span>
                   </div>
-
-            ## TBD: arxiv link, supplementary, code
-<!--                  <div class="column has-text-centered">-->
-<!--                    <div class="publication-links">-->
-<!--                         &lt;!&ndash; Arxiv PDF link &ndash;&gt;-->
-<!--                      <span class="link-block">-->
-<!--                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"-->
-<!--                        class="external-link button is-normal is-rounded is-dark">-->
-<!--                        <span class="icon">-->
-<!--                          <i class="fas fa-file-pdf"></i>-->
-<!--                        </span>-->
-<!--                        <span>Paper</span>-->
-<!--                      </a>-->
-<!--                    </span>-->
-
-<!--                    &lt;!&ndash; Supplementary PDF link &ndash;&gt;-->
-<!--                    <span class="link-block">-->
-<!--                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"-->
-<!--                      class="external-link button is-normal is-rounded is-dark">-->
-<!--                      <span class="icon">-->
-<!--                        <i class="fas fa-file-pdf"></i>-->
-<!--                      </span>-->
-<!--                      <span>Supplementary</span>-->
-<!--                    </a>-->
-<!--                  </span>-->
-
-<!--                  &lt;!&ndash; Github link &ndash;&gt;-->
-<!--                  <span class="link-block">-->
-<!--                    <a href="https://github.com/YOUR REPO HERE" target="_blank"-->
-<!--                    class="external-link button is-normal is-rounded is-dark">-->
-<!--                    <span class="icon">-->
-<!--                      <i class="fab fa-github"></i>-->
-<!--                    </span>-->
-<!--                    <span>Code</span>-->
-<!--                  </a>-->
-<!--                </span>-->
-
-<!--                &lt;!&ndash; ArXiv abstract Link &ndash;&gt;-->
-<!--                <span class="link-block">-->
-<!--                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"-->
-<!--                  class="external-link button is-normal is-rounded is-dark">-->
-<!--                  <span class="icon">-->
-<!--                    <i class="ai ai-arxiv"></i>-->
-<!--                  </span>-->
-<!--                  <span>arXiv</span>-->
-<!--                </a>-->
-<!--              </span>-->
-<!--            </div>-->
-<!--          </div>-->
-
-        </div>
-      </div>
+            
+            <!-- Publication Links -->
+<div class="column has-text-centered">
+    <div class="publication-links">
+  
+      <!-- Paper PDF link -->
+      <span class="link-block">
+        <a href="https://ieeexplore.ieee.org/document/10889508?denied=" target="_blank"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+            <i class="fas fa-file-pdf"></i>
+          </span>
+          <span>ICASSP 2025 Paper</span>
+        </a>
+      </span>
+  
+      <!-- GitHub link -->
+      <span class="link-block">
+        <a href="https://github.com/yoongi43/VRVQ" target="_blank"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+          <span>Code</span>
+        </a>
+      </span>
+  
+      <!-- arXiv abstract link -->
+      <span class="link-block">
+        <a href="https://arxiv.org/abs/2410.06016" target="_blank"
+           class="external-link button is-normal is-rounded is-dark">
+          <span class="icon">
+            <i class="ai ai-arxiv"></i>
+          </span>
+          <span>arXiv (NeurIPS 2024 Workshop)</span>
+        </a>
+      </span>
+  
+    </div>
+  </div>
+  
+     
     </div>
   </div>
 </section>
@@ -304,10 +301,12 @@ const level_list = [4.00, 6.40, 9.60, 16.00]; -->
 const nq_list = [2, 4];
 const level_list = [4.00, 6.40]; -->
 
+<!-- const indices = Array.from({ length: 30 }, (_, i) => i); -->
 <!-- scripts for daps -->
 <div id="results-container-speech"></div>
 <script>
-    const indices = [10, 11, 13, 14];
+    // 0~29
+    const indices = [2, 3, 10, 14, 15, 21, 23, 27, 28];
     const nq_list = [2, 4, 6, 8];
     const level_list = [4.00, 6.40, 9.60, 16.00];
     const results = [];
@@ -325,11 +324,11 @@ const level_list = [4.00, 6.40]; -->
             fetch(metaPathCBR).then(res => res.json()),
             fetch(metaPathVBR).then(res => res.json())
             ]).then(([metaCBR, metaVBR]) => {
-                results2[i] = {index, metaCBR, metaVBR};
-                loaded2++;
+                results[i] = {index, metaCBR, metaVBR};
+                loaded++;
 
-                if (loaded2 == indices.length) {
-                    results2.forEach((result, i) => {
+                if (loaded == indices.length) {
+                    results.forEach((result, i) => {
                         const { index, metaCBR, metaVBR } = result;
                         const sampleNumber = i + 1;
 
@@ -341,7 +340,7 @@ const level_list = [4.00, 6.40]; -->
                                 <thead>
                                     <tr>
                                         <th rowspan="2"></th>
-                                        <th colspan="3">Audio input</th>
+                                        <th colspan="4">Audio input</th>
                                     </tr>
                                     <tr>
                                         <td class="audio-box">
@@ -349,13 +348,13 @@ const level_list = [4.00, 6.40]; -->
                                                 <source src="results/daps/cbr/${index}/input.wav" controls type="audio/wav">
                                             </audio>
                                         </td>
-                                        <td colspan="2" class="spectrogram">
+                                        <td colspan="3" class="spectrogram">
                                             <img src="results/daps/cbr/${index}/input.png" alt="Spectrogram Image">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th colspan="4">DAC (CBR)</th>
-                                        <th colspan="5">VRVQ</th>
+                                        <th colspan="5">VRVQ ($ \\alpha = 2 $)</th>
                                     </tr>
                                     <tr>
                                         <th>$N_q$</th>
@@ -422,11 +421,12 @@ const level_list = [4.00, 6.40]; -->
 </script>
 
 
-<!--###################### Audio and Importance Map Samples ################################-->
+<!-- ###################### Audio and Importance Map Samples ################################-->
 <!-- scripts for musdb -->
+<!-- const indices2 = Array.from({ length: 30 }, (_, i) => i); -->
 <div id="results-container-music"></div>
 <script>
-    const indices2 = [10, 11, 13, 14];
+    const indices2 = [6, 7, 9, 10, 17, 20, 21, 27];
     const nq_list2 = [2, 4, 6, 8];
     const level_list2 = [4.00, 6.40, 9.60, 16.00];
     const results2 = [];
@@ -444,10 +444,10 @@ const level_list = [4.00, 6.40]; -->
             fetch(metaPathCBR).then(res => res.json()),
             fetch(metaPathVBR).then(res => res.json())
             ]).then(([metaCBR, metaVBR]) => {
-                results[i] = {index, metaCBR, metaVBR};
-                loaded++;
+                results2[i] = {index, metaCBR, metaVBR};
+                loaded2++;
 
-                if (loaded == indices2.length) {
+                if (loaded2 == indices2.length) {
                     results2.forEach((result, i) => {
                         const { index, metaCBR, metaVBR } = result;
                         const sampleNumber = i + indices.length;
@@ -460,7 +460,7 @@ const level_list = [4.00, 6.40]; -->
                                 <thead>
                                     <tr>
                                         <th rowspan="2"></th>
-                                        <th colspan="3">Audio input</th>
+                                        <th colspan="4">Audio input</th>
                                     </tr>
                                     <tr>
                                         <td class="audio-box">
@@ -468,13 +468,13 @@ const level_list = [4.00, 6.40]; -->
                                                 <source src="results/musdb18/cbr/${index}/input.wav" controls type="audio/wav">
                                             </audio>
                                         </td>
-                                        <td colspan="2" class="spectrogram">
+                                        <td colspan="3" class="spectrogram">
                                             <img src="results/musdb18/cbr/${index}/input.png" alt="Spectrogram Image">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th colspan="4">DAC (CBR)</th>
-                                        <th colspan="5">VRVQ</th>
+                                        <th colspan="5">VRVQ ($ \\alpha = 2 $)</th>
                                     </tr>
                                     <tr>
                                         <th>$N_q$</th>
